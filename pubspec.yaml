@@ -47,6 +47,7 @@ dependencies:
   firebase_storage: ^11.6.6
   twilio_flutter: ^0.3.0
   http: ^1.2.0
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:

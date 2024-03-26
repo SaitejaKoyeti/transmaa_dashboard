@@ -6,9 +6,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class DriversAcceptedOrders extends StatelessWidget {
   Future<void> sendTwilioSMS(String toPhoneNumber, String message) async {
     // Replace these with your Twilio credentials
-    final accountSid = 'AC1b534c49fd1202a75b209fd2d6236bbd';
-    final authToken = 'b0eb0fa767246e84d778b685b1068962';
-    final twilioNumber = '+18648698947';
+    final accountSid = 'AC8032394725a51f80a26427f0ecd06af6';
+    final authToken = 'f9b098e24ae5cbeeeede74f04ed4ac67';
+    final twilioNumber = '+16562205940';
 
     final response = await http.post(
       Uri.parse('https://api.twilio.com/2010-04-01/Accounts/$accountSid/Messages.json'),
@@ -42,7 +42,7 @@ class DriversAcceptedOrders extends StatelessWidget {
         ),
         child: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('DriversAcceptedOrders')
-              .where('status', isEqualTo: "Pending")
+              .where('status', isEqualTo: "Accepted")
               .snapshots(),
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
